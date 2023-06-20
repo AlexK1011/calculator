@@ -1,0 +1,349 @@
+<!DOCTYPE html5>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>калькулятор</title>
+        <style>
+            body {
+                background: linear-gradient(#000000,#696969);
+            }
+            footer{
+                background-color: #2A2728;
+                width: 100%;
+                height: 200px;
+                margin-top: 50px;
+                margin-left: 0px;
+                margin-right: 0px;
+                padding-left: 0px;
+                padding-right: 0px;
+                font-size: 15pt;
+            }
+            p {
+                margin-block-end: 0;
+            }
+            div {
+                margin-left: auto;
+                margin-right: auto;
+                width: 95%;
+                height: auto;
+            }
+            table {
+                color: #FFA07A;
+                text-align: center;
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+                height: 100%;
+                border-spacing: 30px;
+            }
+            #tableContainer{
+                color: #FFA07A;
+                width: 95%;
+                margin-left: auto;
+                margin-right: auto;
+                height: 915px;
+            }
+            .buttons {
+                margin-left: auto;
+                margin-right: auto;
+                width: 191.25px;
+                font-size: 40pt;
+                border: 10px solid #838783;
+                border-radius: 50%;
+                background-color: #4A4C4E;
+                box-shadow: 5px 10px 1px #6F736F;
+                transition-duration: 0.1s;
+            }
+            /* #686A6C border*/
+
+            /*   #2C2E30 background-color*/
+            .buttons:active {
+                color: #D77852;
+                margin-left: auto;
+                margin-right: auto;
+                width: 191.25px;
+                font-size: 40pt;
+                border: 10px solid #686A6C;
+                border-radius: 50%;
+                background-color: #2C2E30;
+                transition-duration: 0.1s;
+                box-shadow: none;
+                transform: translate(5px, 10px)
+            }
+            #exp {
+                color: #95B9C7;
+            }
+            #answer {
+                color: #CCFFFF;
+            }
+            #lastExp {
+                color: #87AFC7;
+            }
+            input {
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+                border: none;
+                outline: none;
+                background-color: #000000;
+                height: 33.3%;
+                text-align: right;
+                font-size: 40pt;
+            }
+            #input1 {
+                margin-left: auto;
+                margin-right: auto;
+                width: 95%;
+                height: 240px;
+                margin-top: 0;
+            }
+            #error {
+                color: #F8F8FF;
+                margin-bottom: 5px;
+                text-align: right;
+                margin-right: 10px;
+                font-size: 40pt;
+                width: 100%;
+                height: 150px;
+            }
+            #MoreOptions {
+                height: 100%;
+                width: 300px;
+                color: #42BB48;
+                font-size: 60pt;
+                margin-top: 0;
+                text-align: center;
+                background-color: #4A4C4E;
+                border: 10px solid #838783;
+                box-shadow: 5px 10px 1px #6F736F;
+                border-radius: 30px;
+                transition-duration: 0.1s;
+            }
+            #MoreOptions:active{
+                height: 100%;
+                width: 300px;
+                color: #1A9320;
+                font-size: 60pt;
+                margin-top: 0;
+                text-align: center;
+                border-radius: 30px;
+                background-color: #2C2E30;
+                border: 10px solid #686A6C;
+                transition-duration: 0.1s;
+                box-shadow: none;
+                transform: translate(5px, 10px)
+            }
+            #options {
+                margin-left: auto;
+                margin-right: auto;
+                width: 95%;
+                height: 130px;
+            }
+            #optionsList{
+                color: #FFA07A;
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #listContainer{
+                color: #FFA07A;
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 40px;
+                display: none;
+                height: auto;
+                text-align: center;
+            }
+            .footerText {
+                margin-left: 30px;
+                padding-top: 30px;
+                padding-right: 30px;
+                color: #B6B6B4;
+            }
+            .listbutton{
+                color: #FFA07A;
+                margin-left: 20px;
+                margin-right: 20px;
+                height: 120px;
+                width: 45%;
+                font-size: 30pt;
+                border: 10px solid #838783;
+                border-radius: 30px;
+                background-color: #4A4C4E;
+                box-shadow: 5px 10px 1px #6F736F;
+                transition-duration: 0.1s;
+            }
+            .listbutton:active{
+                color: #D77852;
+                margin-left: 20px;
+                margin-right: 20px;
+                height: 120px;
+                width: 45%;
+                font-size: 30pt;
+                border: 10px solid #686A6C;
+                border-radius: 30px;
+                background-color: #2C2E30;
+                transition-duration: 0.1s;
+                box-shadow: none;
+                transform: translate(5px, 10px)
+            }
+            .Graph {
+                color: #FFA07A;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 20px;
+                height: 120px;
+                width: 80%;
+                font-size: 30pt;
+                border: 10px solid #838783;
+                border-radius: 30px;
+                background-color: #4A4C4E;
+                box-shadow: 5px 10px 1px #6F736F;
+                transition-duration: 0.1s;
+                text-align: center;
+                display: block;
+            }
+            .Graph:active {
+                color: #D77852;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 20px;
+                height: 120px;
+                width: 80%;
+                font-size: 30pt;
+                border: 10px solid #686A6C;
+                border-radius: 30px;
+                background-color: #2C2E30;
+                transition-duration: 0.1s;
+                box-shadow: none;
+                text-align: center;
+                display: block;
+                transform: translate(5px, 10px)
+            }
+            .ToOriginal {
+                color: #FFA07A;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 20px;
+                height: 120px;
+                width: 80%;
+                font-size: 30pt;
+                border: 10px solid #838783;
+                border-radius: 30px;
+                background-color: #4A4C4E;
+                box-shadow: 5px 10px 1px #6F736F;
+                transition-duration: 0.1s;
+                text-align: center;
+                display: none;
+            }
+            .ToOriginal:active {
+                color: #D77852;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 20px;
+                height: 120px;
+                width: 80%;
+                font-size: 30pt;
+                border: 10px solid #686A6C;
+                border-radius: 30px;
+                background-color: #2C2E30;
+                transition-duration: 0.1s;
+                box-shadow: none;
+                text-align: center;
+                transform: translate(5px, 10px)
+            }
+            #myCanvos {
+                width: 100%;
+                height: auto;
+                background-color: #151B8D;
+                margin-left: auto;
+                margin-right: auto;
+                display: none;
+            }
+            .divCanvos {
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 20px;
+            }
+            .XRow {
+                display: none;
+            }
+        </style>
+        <script src="node_modules/animejs/lib/anime.min.js"></script>
+    </head>
+    <body>
+        <main>
+            <div>
+                <p id="error"></p>
+            </div>
+            <p id="input1">
+                <input id="lastExp" readonly="readonly" value="">
+                <input id="exp" readonly="readonly" value="">
+                <input id="answer" readonly="readonly" value="">
+            </p>
+            <div id="tableContainer">
+            <table id="mytable">
+                <tr class="XRow">
+                    <td class="buttons" onclick="printX()">X</td>
+                </tr>
+                <tr>
+                    <td class="buttons" id="clearAll" onclick="clearAll()">C</td>
+                    <td class="buttons" onclick="addOpenBracket()">(</td>
+                    <td class="buttons" onclick="addCloseBracket()">)</td>
+                    <td class="buttons" onclick="deleteLast()">⌫</td>
+                </tr>
+                <tr>
+                    <td class="buttons" onclick="PressNumber(7,event)">7</td>
+                    <td class="buttons" onclick="PressNumber(8)">8</td>
+                    <td class="buttons" onclick="PressNumber(9)">9</td>
+                    <td class="buttons" onclick="plusNumber()">+</td>
+                </tr>
+                <tr>
+                    <td class="buttons" onclick="PressNumber(4)">4</td>
+                    <td class="buttons" onclick="PressNumber(5)">5</td>
+                    <td class="buttons" onclick="PressNumber(6)">6</td>
+                    <td class="buttons" onclick="minusNumber()">-</td>
+                </tr>
+                <tr>
+                    <td class="buttons" onclick="PressNumber(1)">1</td>
+                    <td class="buttons" onclick="PressNumber(2)">2</td>
+                    <td class="buttons" onclick="PressNumber(3)">3</td>
+                    <td class="buttons" onclick="divideNumber()">:</td>
+                </tr>
+                <tr>
+                    <td class="buttons" onclick="addPoint()">.</td>
+                    <td class="buttons" onclick="PressNumber(0)">0</td>
+                    <td class="buttons" onclick="calculateAnswer()">=</td>
+                    <td class="buttons" onclick="multiplyNumber()">×</td>
+                </tr>
+            </table>
+            </div>
+            <div class="divCanvos">
+                <canvas id="myCanvos"></canvas>
+            </div>
+            <div id="listContainer">
+                <div id="optionsList">
+                    <button class="listbutton" onclick="exponentiate()">x<sup>y</sup></button>
+                    <button class="listbutton" onclick="RootExtraction()">√x</button>
+                    <button class="Graph" onclick="Graphing()">режим построения графика</button>
+                    <button class="ToOriginal" onclick="ToOriginal()">стандартный режим</button>
+                </div>
+            </div>
+            <div id="options">
+                <p id="MoreOptions" title="другие действия" onclick="showOptions()">≡</p>
+            </div>
+        </main>
+        <footer>
+            <p class="footerText">
+                Этот простой калькулятор написаный на JavaScript позволяет быстро и легко производить математические операции.
+                 Он оснащен базовыми функциями, такими как сложение, вычитание, умножение и деление,
+                 а также позволяет использовать скобки для управления порядком операций.
+                 Калькулятор удобен в использовании и поможет вам решать различные задачи,
+                 которые требуют вычислений. 
+            </p>
+        </footer>
+        <script src="calculator.js"></script>
+    </body>
+</html>
